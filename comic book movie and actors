@@ -1,0 +1,73 @@
+CREATE TABLE actors (id INTEGER, name TEXT, movie TEXT, franchise TEXT);
+INSERT into actors VALUES 
+(1,"Jason Momoa", "Aquaman", "DC"),
+(2, "Robert Downey Jr", "Ironman", "Marvel"),
+(3, "Michael Keaton", "Batman", "DC"),
+(4, "Chris Evans", "Captain America", "Marvel"),
+(5, "Jeremy Renner", "Hawkeye", "Marvel"),
+(6, "Gal Gadot", "Wonder Woman", "DC"),
+(7, "Ryan Renolds", "Green Lantern", "DC"),
+(8, "Scarlett Johansson", "Black Widow", "Marvel"),
+(9, "Chris Hemsworth", "Thor", "Marvel"),
+(10, "Paul Rudd", "Ant Man", "Marvel"),
+(11, "Chris Pratt", "Guardians of the Galaxy", "Marvel"),
+(12, "Benedict Cumberbatch", "Dr. Strange", "Marvel"),
+(13, "Ezra Miller", "Flash", "DC"),
+(14, "Zachary Levi", "Shazam", "DC"),
+(15, "Tom Holland", "Spiderman", "Marvel");
+
+
+CREATE TABLE movies (movie TEXT,release_year INTEGER);
+INSERT into movies VALUES
+("Captain America", 2014),
+("Hawkeye", 2021),
+("Batman", 1989),
+("Wonder Woman", 2017),
+("Aquaman", 2018),
+("Ironman", 2008),
+("Green Lantern", 2011),
+("Black Widow", 2021),
+("Thor", 2013),
+("Ant Man", 2015),
+("Guardians of the Galaxy", 2014),
+("Dr. Strange", 2016),
+("Flash", 2023),
+("Shazam", 2019),
+("Spiderman", 2017);
+
+CREATE TABLE ages (actor TEXT, age INTEGER);
+INSERT into ages VALUES
+("Jeremy Renner", 52),
+("Jason Momoa", 43),
+("Gal Gadot", 38),
+("Robert Downey Jr", 58),
+("Chris Evans", 41),
+("Michael Keaton", 71),
+("Ryan Renolds", 46),
+("Scarlett Johansson",38),
+("Chris Hemsworth", 39),
+("Paul Rudd", 54),
+("Chris Pratt", 43),
+("Benedict Cumberbatch", 46),
+("Ezra Miller", 30),
+("Zachary Levi", 42),
+("Tom Holland", 26);
+
+
+<<<List actors and their ages and list by youngest to oldest>>>
+
+SELECT actors.name actor, ages.age
+FROM actors
+JOIN ages
+ON actors.name=ages.actor
+ORDER BY age asc;
+
+
+<<<List DC movies and release year and order oldest to newest >>>
+
+SELECT actors.movie, movies.release_year year, actors.franchise
+FROM actors
+JOIN movies
+ON actors.movie=movies.movie
+WHERE franchise= "DC"
+ORDER BY release_year asc; 
